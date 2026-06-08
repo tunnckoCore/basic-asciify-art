@@ -3,30 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blockscript Preview</title>
+    <title>Ethscription gzip font comparison</title>
   </head>
   <body>
     <main class="page">
-      <section class="comparison" aria-label="Ethscriptions and Calldata font comparison">
-        <div class="column" aria-label="Ethscriptions API fonts">
-          <h2>api.ethscriptions.com /data</h2>
-          <article class="textBox highscript-eths" aria-label="Ethscriptions High Blockscript sample">
-            ASCII art turns ordinary text into texture: a paragraph becomes a field of marks, spacing, and rhythm. These panels use the same words so the difference between raw gzipped data and browser-ready content is easy to compare.
-          </article>
-          <article class="textBox lowscript-eths" aria-label="Ethscriptions Low Blockscript sample">
-            ASCII art turns ordinary text into texture: a paragraph becomes a field of marks, spacing, and rhythm. These panels use the same words so the difference between raw gzipped data and browser-ready content is easy to compare.
-          </article>
-        </div>
+      <section class="shell" aria-labelledby="page-title">
+        <header class="intro">
+          <div>
+            <h1 id="page-title">Gzipped Ethscription fonts in the browser</h1>
+            <p>
+              The left side points at canonical raw `/data`. The right side points at decoded `/content`, where the browser receives actual font bytes after HTTP handling.
+            </p>
+          </div>
+          <a class="repoLink" href="https://github.com/tunnckoCore/basic-asciify-art">GitHub repo</a>
+        </header>
 
-        <div class="column" aria-label="Calldata API fonts">
-          <h2>api.calldata.space /content</h2>
-          <article class="textBox highscript-calldata" aria-label="Calldata High Blockscript sample">
-            ASCII art turns ordinary text into texture: a paragraph becomes a field of marks, spacing, and rhythm. These panels use the same words so the difference between raw gzipped data and browser-ready content is easy to compare.
-          </article>
-          <article class="textBox lowscript-calldata" aria-label="Calldata Low Blockscript sample">
-            ASCII art turns ordinary text into texture: a paragraph becomes a field of marks, spacing, and rhythm. These panels use the same words so the difference between raw gzipped data and browser-ready content is easy to compare.
-          </article>
-        </div>
+        <section class="notes" aria-label="Endpoint model">
+          <p><strong>/data</strong> preserves what is on-chain. If the payload starts with gzip bytes, consumers handle it.</p>
+          <p><strong>/content</strong> serves the decoded asset with web embedding headers, so `@font-face` can parse it.</p>
+        </section>
+
+        <section class="comparison" aria-label="Ethscriptions and Calldata font comparison">
+          <div class="column columnRaw" aria-label="Ethscriptions API fonts">
+            <div class="columnHeader">
+              <h2>api.ethscriptions.com</h2>
+              <span class="status statusRaw">raw /data</span>
+            </div>
+            <p class="columnCopy">Expected browser result: OTS sees gzip magic bytes, logs `invalid sfntVersion: 529205248`, then falls back.</p>
+            <article class="textBox highscript-eths" aria-label="Ethscriptions High Blockscript sample">
+              ASCII art turns ordinary text into texture: a paragraph becomes a field of marks, spacing, and rhythm. This panel is intentionally wired to raw gzipped font data.
+            </article>
+            <article class="textBox lowscript-eths" aria-label="Ethscriptions Low Blockscript sample">
+              ASCII art turns ordinary text into texture: a paragraph becomes a field of marks, spacing, and rhythm. This panel is intentionally wired to raw gzipped font data.
+            </article>
+          </div>
+
+          <div class="column columnContent" aria-label="Calldata API fonts">
+            <div class="columnHeader">
+              <h2>api.calldata.space</h2>
+              <span class="status statusContent">decoded /content</span>
+            </div>
+            <p class="columnCopy">Expected browser result: after HTTP decoding, the font parser receives `wOF2` or `OTTO` bytes and the Blockscript face renders.</p>
+            <article class="textBox highscript-calldata" aria-label="Calldata High Blockscript sample">
+              ASCII art turns ordinary text into texture: a paragraph becomes a field of marks, spacing, and rhythm. This panel is served as browser-ready font content.
+            </article>
+            <article class="textBox lowscript-calldata" aria-label="Calldata Low Blockscript sample">
+              ASCII art turns ordinary text into texture: a paragraph becomes a field of marks, spacing, and rhythm. This panel is served as browser-ready font content.
+            </article>
+          </div>
+        </section>
       </section>
     </main>
     <script type="module" src="/src/main.ts"></script>

@@ -1,6 +1,6 @@
-# Blockscript gzip font demo
+# Ethscription gzip font demo
 
-Small Vite page comparing direct Ethscriptions `/data` font URLs with Calldata `/content` URLs.
+Small Vite page comparing direct Ethscriptions `/data` font URLs with Calldata `/content` font URLs.
 
 ## Endpoint split
 
