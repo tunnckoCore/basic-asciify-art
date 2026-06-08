@@ -1,0 +1,116 @@
+@font-face {
+    font-family: "High Blockscript Ethscriptions";
+    src:
+        url("https://api.ethscriptions.com/v2/ethscriptions/0x5296ef8b8fb4168b57a09813622f7bc8198a9456b57886e47e1129475ef88d4a/data")
+            format("woff2"),
+        url("https://api.ethscriptions.com/v2/ethscriptions/0xcbf0c8a0c61f8018f9ad186e4aaa300faad892c6cbfa398841814f02c3bdea30/data")
+            format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Low Blockscript Ethscriptions";
+    src:
+        url("https://api.ethscriptions.com/v2/ethscriptions/0x6c588b716ba2c2eda5fc12acea9914a103f0bfeb0bb47ab2072cf523fa2339a8/data")
+            format("woff2"),
+        url("https://api.ethscriptions.com/v2/ethscriptions/0x665ba2d452904e03e1943e0800af42468e107b614ee4ec59d377a66ffbe5ea5d/data")
+            format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "High Blockscript Calldata";
+    src:
+        url("https://api.calldata.space/ethscriptions/0x5296ef8b8fb4168b57a09813622f7bc8198a9456b57886e47e1129475ef88d4a/content")
+            format("woff2"),
+        url("https://api.calldata.space/ethscriptions/0xcbf0c8a0c61f8018f9ad186e4aaa300faad892c6cbfa398841814f02c3bdea30/content")
+            format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Low Blockscript Calldata";
+    src:
+        url("https://api.calldata.space/ethscriptions/0x6c588b716ba2c2eda5fc12acea9914a103f0bfeb0bb47ab2072cf523fa2339a8/content")
+            format("woff2"),
+        url("https://api.calldata.space/ethscriptions/0x665ba2d452904e03e1943e0800af42468e107b614ee4ec59d377a66ffbe5ea5d/content")
+            format("opentype");
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+    font-size: 14px;
+}
+
+body {
+    background: #0f0f0f;
+    color: #f5f5f5;
+}
+
+.page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.comparison {
+    width: min(1120px, 100%);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.column {
+    display: grid;
+    align-content: start;
+    gap: 14px;
+}
+
+h2 {
+    margin: 0;
+    color: #d8d8d8;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.textBox {
+    min-height: 190px;
+    border: 1px solid #3a3a3a;
+    background: #1a1a1a;
+    padding: 18px;
+    overflow-wrap: anywhere;
+    line-height: 1.18;
+    letter-spacing: 0.01em;
+    font-size: clamp(17px, 2.4vw, 30px);
+}
+
+.highscript-eths {
+    font-family: "High Blockscript Ethscriptions", monospace;
+}
+
+.lowscript-eths {
+    font-family: "Low Blockscript Ethscriptions", monospace;
+}
+
+.highscript-calldata {
+    font-family: "High Blockscript Calldata", monospace;
+}
+
+.lowscript-calldata {
+    font-family: "Low Blockscript Calldata", monospace;
+}
+
+@media (max-width: 760px) {
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+}
