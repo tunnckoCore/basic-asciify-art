@@ -112,6 +112,16 @@ h1 {
     text-wrap: pretty;
 }
 
+code {
+    border: 1px solid oklch(0.33 0 0);
+    background: oklch(0.13 0 0);
+    color: oklch(0.88 0.045 200);
+    padding: 0.08em 0.32em;
+    font-family: var(--mono);
+    font-size: 0.92em;
+    white-space: nowrap;
+}
+
 .repoLink {
     min-height: 40px;
     display: inline-flex;
@@ -152,6 +162,11 @@ h1 {
     color: var(--ink);
     font-family: var(--mono);
     font-weight: 600;
+}
+
+.notes code,
+.columnCopy code {
+    color: oklch(0.91 0.05 200);
 }
 
 .comparison {
