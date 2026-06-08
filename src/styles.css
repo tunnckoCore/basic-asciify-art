@@ -217,14 +217,14 @@ h2 {
 }
 
 .textBox {
-    min-height: 208px;
+    min-height: 172px;
     border: 1px solid var(--border);
     background: var(--surface-2);
     padding: 16px;
     overflow-wrap: anywhere;
     line-height: 1.18;
     letter-spacing: 0.01em;
-    font-size: clamp(17px, 2.4vw, 30px);
+    font-size: clamp(13px, 1.65vw, 21px);
 }
 
 .columnRaw .textBox {
@@ -275,6 +275,11 @@ h2 {
 
     .column {
         padding: 12px;
+    }
+
+    .textBox {
+        min-height: 142px;
+        font-size: 14px;
     }
 
     .columnHeader {
